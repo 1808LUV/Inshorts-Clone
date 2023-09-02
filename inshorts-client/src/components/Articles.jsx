@@ -1,9 +1,12 @@
 import React from 'react'
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import {Box} from '@mui/material'
 import {getNews} from '../service/api';
+import Article from './Article';
 
 const Articles = () => {
+
+  const [news, setNews] = useState([]);
 
     useEffect(() => {
         dailyNews();
@@ -11,10 +14,15 @@ const Articles = () => {
 
     const dailyNews = async () => {
         let response = await getNews();
+        setNews(response.data);
     }
   return (
     <Box>
-      Hello
+      {
+      news.map(data => (
+        <Article data={data}/>
+      ))
+    }
     </Box>
   )
 }
