@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+
 
 const newsSchema = new mongoose.Schema({
     title: {
@@ -31,7 +32,6 @@ const newsSchema = new mongoose.Schema({
         required: true
     }
 });
-
 
 const news = mongoose.model('news', newsSchema);
 
